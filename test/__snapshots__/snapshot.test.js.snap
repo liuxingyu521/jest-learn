@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot compare, must be the same 1 1`] = `
+Object {
+  "id": 8,
+  "name": "blob",
+}
+`;
+
+exports[`snapshot compare, must be the same 2 1`] = `
+Object {
+  "date": Any<Date>,
+  "id": Any<Number>,
+  "name": "Aliced",
+}
+`;

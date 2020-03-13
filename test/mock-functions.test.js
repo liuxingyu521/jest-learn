@@ -61,35 +61,34 @@ describe('mock return values', () => {
  * 
  * 模拟 axios 库
  */
-import axios from 'axios'
-class User {
-  static all() {
-    return axios.get('/users.json').then(resp => resp.data)
-  }
-}
+// import Users from '../src/users'
+// import axios from 'axios'
 
-jest.mock('axios')
+/** 
+ * 优先查找 __mocks__ 下是否有 axios mock 模块文件
+ */
+// jest.mock('axios')
 
-it('mock axios 库', () => {
-  const users = [{
-    name: "Xuer"
-  }]
-  const resp = { data: users, code: 200}
-  axios.get.mockResolvedValue(resp)
-  // axios.get.mockImplementation(() => Promise.resolve(resp))
+// it('mock axios 库', () => {
+//   const users = [{
+//     name: "Xuer"
+//   }]
 
-  return User.all().then(res => {
-    expect(res).toEqual(users)
-  })
-})
+//   const resp = { data: users, code: 200}
+//   axios.get.mockResolvedValue(resp)
+//   // axios.get.mockImplementation(() => Promise.resolve(resp))
+
+//   return Users.all().then(res => {
+//     expect(res).toEqual(users)
+//   })
+// })
 
 /**
  * mock 接口实现
  * - mockName 可以设置 mock 的函数名，在控制台输出展示
  */
-jest.mock('../src/index')
-// import mathFunc from '../src/index' // import 方式不可以
-const mathFunc = require('../src/index')
+jest.mock('../src/add')
+import {add as mathFunc} from '../src/add'
 
 mathFunc.mockImplementation(() => 6).mockName('mock add()');
 mathFunc(3, 3)

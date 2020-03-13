@@ -1,4 +1,5 @@
-const add = require("../src/index");
+// const add = require("../src/add");
+import { add } from '../src/add'
 
 it("test add func", () => {
   expect(add(1, 2)).toBe(3);
